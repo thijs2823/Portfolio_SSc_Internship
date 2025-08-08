@@ -62,7 +62,7 @@ The dataset includes both clinical and immunological baseline characteristics:
   - Nailfold capillary density ≤ 7 (HR 3.62, p < 0.001)
   - ENA autoantibody profile (p = 0.009)
 
-All visualizations available in the full report (PDF)
+All visualizations and results are available in the full report (PDF)
 
 ## Status
 Completed  
