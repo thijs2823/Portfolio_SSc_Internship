@@ -37,6 +37,8 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
 **Source**: Patient data from the Radboudumc collected between 2017 and 2023. Initial sample size: 87 patients; final sample size: 62 patients  
   - 20 for not meeting the baseline criteria for early-stage systemic sclerosis  
   - 5 excluded due to missing consent
+<img width="300" height="763" alt="image" src="https://github.com/user-attachments/assets/7fb584f6-50da-4ea3-af33-d49b550ea4df" />
+
 
 The dataset includes both clinical and immunological baseline characteristics:
 
@@ -51,6 +53,8 @@ The dataset includes both clinical and immunological baseline characteristics:
 | Disease Progression   | Modified Rodnan Skin Score (mRSS), internal organ involvement, treatment  |
 
 ## Results & Visuals
+<img width="450" height="519" alt="image" src="https://github.com/user-attachments/assets/bc1e8242-fd83-42bc-a8d9-4011bff1168f" />
+
 **Median progression time**: 2.82 years
 
 **Significant predictors**:
@@ -58,7 +62,7 @@ The dataset includes both clinical and immunological baseline characteristics:
   - Nailfold capillary density ≤ 7 (HR 3.62, p < 0.001)
   - ENA autoantibody profile (p = 0.009)
 
-Visualizations available in the full report (PDF)
+All visualizations available in the full report (PDF)
 
 ## Status
 Completed  
