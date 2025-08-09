@@ -15,6 +15,7 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
 - Stratification by autoantibody profile, capillary density, telangiectasia, age, and sex
 
 ## Data Cleaning & Filtering
+- **Inclusion criteria**: Patients with at least two early symptoms at baseline (disease specific autoantibodies (ACA, ATA & ARA, other), abnormal nailfold capillaroscopy (NCM), puffy fingers (PF), or Raynaud’s phenomenon (RP)).
 - **Exclusion criteria**: Patients with established SSc or missing consent were removed.
 - **Missing data handling**:
   - Capillary density data was available for 53 patients.
@@ -48,7 +49,7 @@ The dataset includes both clinical and immunological baseline characteristics:
 |-----------------------|---------------------------------------------------------------------------|
 | Demographics          | Age, Sex                                                                  |
 | Lifestyle             | Smoking status (current and ever smoked)                                  |
-| Clinical Symptoms     | Raynaud's phenomenon (RP), Puffy fingers (PF), Telangiectasia             |
+| Clinical Symptoms     | Raynaud's phenomenon, Puffy fingers, Telangiectasia             |
 | Microvascular         | Nailfold capillary density, Nailfold capillaroscopy (NCM) pattern         |
 | Immunological         | ANA positivity, ENA profile (ACA, ATA, other ENAs, ENA-negative)          |
 | Inflammation          | Erythrocyte Sedimentation Rate (ESR)                                      |
