@@ -18,7 +18,7 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
 - **Exclusion criteria**: Patients with established SSc or missing consent were removed.
 - **Missing data handling**:
   - Capillary density data was available for 53 patients.
-  - ESR values were available for 56 patients.
+  - NCM mean capillary density values were available for 53 patients.
 - **Standardization**:
   - RP and PF duration were standardized to months using fixed conversion rules.
   - Autoantibody profiles were grouped into ACA, ATA, other ENAs, and ENA-negative.
@@ -39,6 +39,8 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
   - 5 excluded due to missing consent
 <img width="300" height="763" alt="image" src="https://github.com/user-attachments/assets/7fb584f6-50da-4ea3-af33-d49b550ea4df" />
 
+*Figure 1. Flow chart of patient selection*
+
 
 The dataset includes both clinical and immunological baseline characteristics:
 
@@ -55,6 +57,8 @@ The dataset includes both clinical and immunological baseline characteristics:
 ## Results & Visuals
 <img width="450" height="519" alt="image" src="https://github.com/user-attachments/assets/bc1e8242-fd83-42bc-a8d9-4011bff1168f" />
 
+*Figure 2. Cumulative incidence function for progression, including 95% CI (n=62)*
+
 **Median progression time**: 2.82 years
 
 **Significant predictors**:
@@ -66,11 +70,16 @@ The dataset includes both clinical and immunological baseline characteristics:
 
 <img width="310" height="443" alt="image" src="https://github.com/user-attachments/assets/e8b09252-f314-4111-b823-e12e488bfa43" />
 
+*Figure 4. Cumulative incidence function by telangiectasia status*
+*Figure 5. Cumulative incidence function by NCM mean capillary density divided into ≤ 7 and > 7*
+*Figure 3. Cumulative incidence function by ENA status*
 
 All visualizations and results are available in the full report (PDF)
 
 ## Status
 Completed  
 Internship period: Feb 2024 – June 2024  
-Final report submitted: June 30, 2024
-Due to overlap with established literature, the findings were not submitted for publication.
+Final report submitted: June 30, 2024. Due to overlap with established literature, the findings were not submitted for publication.
+
+## Reflection and future direction
+The relatively low statistical power, resulting from our small cohort size, limited our ability to perform meaningful analyses on all clinical and immunological variables initially collected. In future projects, I aim to work with larger cohorts, apply a multivariable modeling approach, and explore the implementation of machine learning techniques.
