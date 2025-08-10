@@ -11,95 +11,73 @@ df_filtered_baseline <- Database %>%
 n_total <- nrow(df_filtered_baseline)
 n_total
 
-# Gender
+# Gender: counting male gender
 n_male <- sum(df_filtered_baseline$SEX == 0, na.rm = TRUE)
-pct_male <- round(100 * n_male / n_total, 1)
+n_tot_sex <- sum(!is.na(df_filtered_baseline$SEX))
+pct_male <- round(100 * n_male / n_tot_sex, 1)
 cat("Male:", n_male, "(", pct_male, "%)\n")
 
-# Age
+# Age: mean age with standard deviation
 mean_age <- round(mean(df_filtered_baseline$AGE, na.rm = TRUE), 1)
 sd_age <- round(sd(df_filtered_baseline$AGE, na.rm = TRUE), 1)
 cat("Age:", mean_age, "(", sd_age, ")\n")
 
-# Ever smoked
-n_ever_smoked <- sum(df_filtered_baseline$SMOKE == 1, na.rm = TRUE)
-pct_ever_smoked <- round(100 * n_ever_smoked / n_total, 1)
-cat("Ever smoked:", n_ever_smoked, "(", pct_ever_smoked, "%)\n")
-
-# Current smoking
-n_smoking_now <- sum(df_filtered_baseline$SMOKING == 1, na.rm = TRUE)
-pct_smoking_now <- round(100 * n_smoking_now / n_total, 1)
-cat("Current smoking:", n_smoking_now, "(", pct_smoking_now, "%)\n")
-
-# ESR
+# ESR: the median ESR with interquartile range
 esr_median <- median(df_filtered_baseline$LBTEST_ESR, na.rm = TRUE)
 esr_q1 <- quantile(df_filtered_baseline$LBTEST_ESR, 0.25, na.rm = TRUE)
 esr_q3 <- quantile(df_filtered_baseline$LBTEST_ESR, 0.75, na.rm = TRUE)
 cat("ESR:", esr_median, "(", esr_q1, "-", esr_q3, ")\n")
 
-# Capillary density
+# Capillary density: the median capillary density with interquartile range
 cap_median <- median(df_filtered_baseline$LBTEST_CAPDEN, na.rm = TRUE)
 cap_q1 <- quantile(df_filtered_baseline$LBTEST_CAPDEN, 0.25, na.rm = TRUE)
 cap_q3 <- quantile(df_filtered_baseline$LBTEST_CAPDEN, 0.75, na.rm = TRUE)
 cat("Capillary density:", cap_median, "(", cap_q1, "-", cap_q3, ")\n")
 
-# Raynaud's Phenomenon
-n_rp <- sum(df_filtered_baseline$RPYN == 1, na.rm = TRUE)
-pct_rp <- round(100 * n_rp / n_total, 1)
-cat("Raynaud's phenomenon:", n_rp, "(", pct_rp, "%)\n")
-
+# Raynaud's Phenomenon: the median RP duration with interquartile range
 rp_median <- median(df_filtered_baseline$RPDUR, na.rm = TRUE)
 rp_q1 <- quantile(df_filtered_baseline$RPDUR, 0.25, na.rm = TRUE)
 rp_q3 <- quantile(df_filtered_baseline$RPDUR, 0.75, na.rm = TRUE)
 cat("RP duration (months):", rp_median, "(", rp_q1, "-", rp_q3, ")\n")
 
-# Puffy fingers
-n_pf <- sum(df_filtered_baseline$PUFFYFING == 1, na.rm = TRUE)
-pct_pf <- round(100 * n_pf / n_total, 1)
-cat("Puffy fingers:", n_pf, "(", pct_pf, "%)\n")
-
+# Puffy fingers: the median PF duration with interquartile range
 pf_median <- median(df_filtered_baseline$PUFFYDUR, na.rm = TRUE)
 pf_q1 <- quantile(df_filtered_baseline$PUFFYDUR, 0.25, na.rm = TRUE)
 pf_q3 <- quantile(df_filtered_baseline$PUFFYDUR, 0.75, na.rm = TRUE)
 cat("Puffy finger duration (months):", pf_median, "(", pf_q1, "-", pf_q3, ")\n")
 
 # ANA and ENA positivity
-ana_n <- sum(df_filtered_baseline$LBTEST_ANA == 1, na.rm = TRUE)
-ena_n <- sum(df_filtered_baseline$LBTEST_ENA == 1, na.rm = TRUE)
-cat("ANA positive:", ana_n, "(", round(ana_n / n_total * 100, 1), "%)\n")
-cat("ENA positive:", ena_n, "(", round(ena_n / n_total * 100, 1), "%)\n")
+# Loop for counting and printing the number and valid percentage of positive cases for each variable
+tests <- c(
+  "SMOKE"                  = "Ever smoked",
+  "CLVAL"                  = "Telangiectasia"
+  "SMOKING"                = "Current smoking",
+  "RPYN"                   = "Raynaud's phenomenon",
+  "PUFFYFING"              = "Puffy fingers",
+  "LBTEST_ANA"             = "ANA positive",
+  "LBTEST_ENA"             = "ENA positive",
+  "LBTEST_ACA"             = "ACA positive",
+  "LBTEST_ATA"             = "ATA positive",
+  "LBTEST_ARA"             = "ARA positive",
+  "LBTEST_AntiFibrillarin" = "Anti-Fibrillarin positive",
+  "LBTEST_AntiNOR90"       = "Anti-NOR90 positive",
+  "LBTEST_AntiPMScl"       = "Anti-PMScl positive",
+  "LBTEST_AntiKu"          = "Anti-Ku positive",
+  "LBTEST_AntiPDGFR"       = "Anti-PDGFR positive",
+  "LBTEST_AntiSSARo"       = "Anti-SSA/Ro positive",
+  "LBTEST_Antihiston"      = "Anti-histon positive",
+  "LBTEST_AntiJo1"         = "Anti-Jo1 positive",
+  "LBTEST_AntiSM"          = "Anti-SM positive",
+  "LBTEST_AntiRNP"         = "Anti-RNP positive",
+  "LBTEST_AntiribosomaalP" = "Anti-ribosomaal P positive"
+)
 
-# Autoantibodies
-aca_n  <- sum(df_filtered_baseline$LBTEST_ACA == 1, na.rm = TRUE)
-ata_n  <- sum(df_filtered_baseline$LBTEST_ATA == 1, na.rm = TRUE)
-ara_n  <- sum(df_filtered_baseline$LBTEST_ARA == 1, na.rm = TRUE)
-fib_n  <- sum(df_filtered_baseline$LBTEST_AntiFibrillarin == 1, na.rm = TRUE)
-nor_n  <- sum(df_filtered_baseline$LBTEST_AntiNOR90 == 1, na.rm = TRUE)
-pms_n  <- sum(df_filtered_baseline$LBTEST_AntiPMScl == 1, na.rm = TRUE)
-ku_n   <- sum(df_filtered_baseline$LBTEST_AntiKu == 1, na.rm = TRUE)
-pdgfr_n<- sum(df_filtered_baseline$LBTEST_AntiPDGFR == 1, na.rm = TRUE)
-ssa_n  <- sum(df_filtered_baseline$LBTEST_AntiSSARo == 1, na.rm = TRUE)
-his_n  <- sum(df_filtered_baseline$LBTEST_Antihiston == 1, na.rm = TRUE)
-jo1_n  <- sum(df_filtered_baseline$LBTEST_AntiJo1 == 1, na.rm = TRUE)
-sm_n   <- sum(df_filtered_baseline$LBTEST_AntiSM == 1, na.rm = TRUE)
-rnp_n  <- sum(df_filtered_baseline$LBTEST_AntiRNP == 1, na.rm = TRUE)
-ribp_n <- sum(df_filtered_baseline$LBTEST_AntiribosomaalP == 1, na.rm = TRUE)
-
-cat("ACA positive:", aca_n,  "(", round(100 * aca_n  / n_total, 1), "%)\n")
-cat("ATA positive:", ata_n,  "(", round(100 * ata_n  / n_total, 1), "%)\n")
-cat("ARA positive:", ara_n,  "(", round(100 * ara_n  / n_total, 1), "%)\n")
-cat("Anti-Fibrillarin positive:", fib_n,  "(", round(100 * fib_n  / n_total, 1), "%)\n")
-cat("Anti-NOR90 positive:", nor_n,  "(", round(100 * nor_n  / n_total, 1), "%)\n")
-cat("Anti-PMScl positive:", pms_n,  "(", round(100 * pms_n  / n_total, 1), "%)\n")
-cat("Anti-Ku positive:", ku_n,  "(", round(100 * ku_n  / n_total, 1), "%)\n")
-cat("Anti-PDGFR positive:", pdgfr_n, "(", round(100 * pdgfr_n / n_total, 1), "%)\n")
-cat("Anti-SSA/Ro positive:", ssa_n,  "(", round(100 * ssa_n  / n_total, 1), "%)\n")
-cat("Anti-histon positive:", his_n,  "(", round(100 * his_n  / n_total, 1), "%)\n")
-cat("Anti-Jo1 positive:", jo1_n,  "(", round(100 * jo1_n  / n_total, 1), "%)\n")
-cat("Anti-SM positive:", sm_n,  "(", round(100 * sm_n  / n_total, 1), "%)\n")
-cat("Anti-RNP positive:", rnp_n,  "(", round(100 * rnp_n  / n_total, 1), "%)\n")
-cat("Anti-ribosomaal P positive:", ribp_n, "(", round(100 * ribp_n / n_total, 1), "%)\n")
-
+for (col in names(tests)) {
+  n_pos <- sum(df_filtered_baseline[[col]] == 1, na.rm = TRUE)
+  n_tot <- sum(!is.na(df_filtered_baseline[[col]]))
+  perc  <- round(100 * n_pos / n_tot, 1)
+  cat(tests[col], ":", n_pos, "(", perc, "%)\n")
+}
 
 ## Figure 2. Cumulative incidence function for progression, including 95% CI with A time-to-event summary table was added to display the number of patients at risk, lost to follow-up, and progression events at each time point (year)
 
@@ -273,12 +251,10 @@ cox_CAPDENS <- coxph(Surv(df_filtered_event$TIBDY, df_filtered_event$CEOCCUR) ~ 
 summary_CAPDENS <- summary(cox_CAPDENS)
 print(summary_CAPDENS)
 
-
 # Scleroderma pattern (Nailfold Capillaroscopy)
 cox_SCLERPAT <- coxph(Surv(df_filtered_event$TIBDY, df_filtered_event$CEOCCUR) ~ NCM_SCLERPAT, data = df_filtered_event)
 summary_SCLERPAT <- summary(cox_SCLERPAT)
 print(summary_SCLERPAT)
-
 
 # Puffy Fingers
 cox_PF <- coxph(Surv(df_filtered_event$TIBDY, df_filtered_event$CEOCCUR) ~ PUFFYFING, data = df_filtered_event)
@@ -293,19 +269,19 @@ log_rank_test <- survdiff(surv_object ~ ENA_GRP, data = df_filtered_event)
 print(log_rank_test)
 
 # AGE
-log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CNSR) ~ AGE, data = df_filtered_event)
+log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CEOCCUR) ~ AGE, data = df_filtered_event)
 print(log_rank_test)
 
 # SEX
-log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CNSR) ~ SEX, data = df_filtered_event)
+log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CEOCCUR) ~ SEX, data = df_filtered_event)
 print(log_rank_test)
 
 # Telengiectasia
-log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CNSR) ~ CLVAL, data = df_filtered_event)
+log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CEOCCUR) ~ CLVAL, data = df_filtered_event)
 print(log_rank_test)
 
 # Capillary density
-log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CNSR) ~ factor(LBTEST4, levels = c("1", "2")), data = df_filtered_event)
+log_rank_test <- survdiff(Surv(pmin(df_filtered_event$ASTDT_years, 5), df_filtered_event$CEOCCUR) ~ factor(LBTEST4, levels = c("1", "2")), data = df_filtered_event)
 print(log_rank_test)
 
 # Scleroderma pattern
