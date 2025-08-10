@@ -29,7 +29,7 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
   - Progression was defined by meeting ≥1 of the following: mRSS > 0, internal organ involvement, or start of immunosuppressive therapy.
 
 ## Technologies
-- **R**: Statistical analysis and visualization (R script: https://github.com/thijs2823/Portfolio_SSc_Internship/tree/main/R_script)
+- **R**: Statistical analysis and visualization (R script: https://github.com/thijs2823/Portfolio_SSc_Internship/tree/main/R_script.Rmd)
 - **SDTM**: Standardization of clinical data
 - **Epic-system**: Extraction of clinical data from consented patients
 - **Castor EDC**: Data collection and management
