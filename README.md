@@ -1,10 +1,10 @@
 ## Disclaimer
 This repository contains no real patient data.
 
-## Predicting Progression from Early to Advanced Systemic Sclerosis
+## Predicting progression from early to advanced systemic sclerosis
 This exploratory cohort study aimed to determine the time to progression from early symptoms to established Systemic Sclerosis (SSc), and to identify which early autoantibody profiles and clinical symptoms are most associated with progression. The ultimate goal is to improve early diagnosis and guide treatment decisions.
 
-## Goals and Purpose of the Project
+## Goals and purpose of the project
 Systemic Sclerosis is a rare but severe autoimmune disease. Early identification of patients at high risk of progression is crucial for timely treatment and improved outcomes. This project supports clinicians by identifying prognostic markers that can guide decision-making in early-stage patients.
 
 ## Approach
@@ -13,20 +13,6 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
 - Log-rank tests for group comparisons
 - Cox regression for hazard ratios
 - Stratification by autoantibody profile, capillary density, telangiectasia, age, and sex
-
-## Data Cleaning & Filtering
-- **Inclusion criteria**: Patients with at least two early symptoms at baseline (disease specific autoantibodies (ACA, ATA & ARA, other), abnormal nailfold capillaroscopy (NCM), puffy fingers (PF), or Raynaud’s phenomenon (RP)).
-- **Exclusion criteria**: Patients with established SSc or missing consent were removed.
-- **Missing data handling**:
-  - Capillary density data was available for 53 patients.
-  - NCM mean capillary density values were available for 53 patients.
-- **Standardization**:
-  - RP and PF duration were standardized to months using fixed conversion rules.
-  - Autoantibody profiles were grouped into ACA, ATA, other ENAs, and ENA-negative.
-  - Capillary density was categorized as ≤ 7 (significant loss) or > 7.
-  - Age was stratified into three groups: 20–45, 45–60, and 60+ years.
-- **Derived variables**:
-  - Progression was defined by meeting ≥1 of the following: mRSS > 0, internal organ involvement, or start of immunosuppressive therapy.
 
 ## Technologies
 - **R**: Statistical analysis and visualization (R script: https://github.com/thijs2823/Portfolio_SSc_Internship/tree/main/R_script.Rmd)
@@ -42,6 +28,19 @@ Systemic Sclerosis is a rare but severe autoimmune disease. Early identification
 
 *Figure 1. Flow chart of patient selection*
 
+### Data cleaning & filtering
+- **Inclusion criteria**: Patients with at least two early symptoms at baseline (disease specific autoantibodies (ACA, ATA & ARA, other), abnormal nailfold capillaroscopy (NCM), puffy fingers (PF), or Raynaud’s phenomenon (RP)).
+- **Exclusion criteria**: Patients with established SSc or missing consent were removed.
+- **Missing data handling**:
+  - Capillary density data was available for 53 patients.
+  - NCM mean capillary density values were available for 53 patients.
+- **Standardization**:
+  - RP and PF duration were standardized to months using fixed conversion rules.
+  - Autoantibody profiles were grouped into ACA, ATA, other ENAs, and ENA-negative.
+  - Capillary density was categorized as ≤ 7 (significant loss) or > 7.
+  - Age was stratified into three groups: 20–45, 45–60, and 60+ years.
+- **Derived variables**:
+  - Progression was defined by meeting ≥1 of the following: mRSS > 0, internal organ involvement, or start of immunosuppressive therapy.
 
 The dataset includes both clinical and immunological baseline characteristics:
 
@@ -55,7 +54,7 @@ The dataset includes both clinical and immunological baseline characteristics:
 | Inflammation          | Erythrocyte Sedimentation Rate (ESR)                                      |
 | Disease Progression   | Modified Rodnan Skin Score (mRSS), internal organ involvement, treatment  |
 
-## Results & Visuals
+## Results & visuals
 <img width="450" height="519" alt="image" src="https://github.com/user-attachments/assets/bc1e8242-fd83-42bc-a8d9-4011bff1168f" />
 
 *Figure 2. Cumulative incidence function for progression, including 95% CI (n=62)*
@@ -77,10 +76,12 @@ The dataset includes both clinical and immunological baseline characteristics:
 
 All visualizations and results are available in the full report (PDF)
 
+## Conclusion & discussion
+This research found high variability in progression among different ENA profiles, telangiectasia-positivity and nailfold mean capillary density. These can be valuable factors for predicting disease progression, as they are significantly associated with disease progression. The relatively low statistical power, resulting from our small cohort size, limited our ability to perform meaningful analyses on all clinical and immunological variables initially collected. In future projects, multiple regression analysis should also be inplemented.
+
 ## Status
 Completed  
 Internship period: Feb 2024 – June 2024  
 Final report submitted: June 30, 2024. Due to overlap with established literature, the findings were not submitted for publication.
 
-## Reflection and future direction
-The relatively low statistical power, resulting from our small cohort size, limited our ability to perform meaningful analyses on all clinical and immunological variables initially collected. In future projects, I aim to work with larger cohorts, apply a multivariable modeling approach, and explore the implementation of machine learning techniques.
+
