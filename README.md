@@ -77,7 +77,7 @@ The dataset includes both clinical and immunological baseline characteristics:
 All visualizations and results are available in the full report (PDF)
 
 ## Conclusion & discussion
-This research found high variability in progression among different ENA profiles, telangiectasia-positivity and nailfold mean capillary density. These can be valuable factors for predicting disease progression, as they are significantly associated with disease progression. The relatively low statistical power, resulting from our small cohort size, limited our ability to perform meaningful analyses on all clinical and immunological variables initially collected. In future projects, multiple regression analysis should also be inplemented.
+This research found high variability in progression among different ENA profiles, telangiectasia-positivity and nailfold mean capillary density. These can be valuable factors for predicting disease progression, as they are significantly associated with disease progression. The relatively low statistical power, resulting from our small cohort size, limited our ability to perform meaningful analyses on all clinical and immunological variables initially collected. In future projects, multiple regression analysis should also be implemented.
 
 ## Status
 Completed  
